@@ -1,15 +1,20 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
-public class DartBoard : MonoBehaviour {
+public class DartBoard : MonoBehaviour
+{
+  public SpawnController SpawnPoint;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+  private readonly List<Collider> _stuckColliders = new List<Collider>();
+
+  public void OnTriggerEnter(Collider collider)
+  {
+    if (_stuckColliders.All(x => x != collider) && collider.tag == "Player")
+    {
+      _stuckColliders.Add(collider);
+      collider.rigidbody.isKinematic = true;
+      SpawnPoint.SpawnWobbleDog();
+    }
+  }
 }

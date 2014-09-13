@@ -27,7 +27,7 @@ public class RandomForce : MonoBehaviour
     {
       SetNewRandomTimeUntilNextForceApplication();
       var target = GetRandomTarget();
-      Debug.Log(gameObject.name + " is applying force to " + target.name + ". Next force in " + _timeUntilNextForceApplication + " seconds.");
+      //Debug.Log(gameObject.name + " is applying force to " + target.name + ". Next force in " + _timeUntilNextForceApplication + " seconds.");
       switch (Space)
       {
         case Space.Self:
