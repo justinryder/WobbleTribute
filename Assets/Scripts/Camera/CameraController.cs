@@ -26,7 +26,13 @@ public class CameraController : MonoBehaviour
       directionFromTarget += Mathf.Sin(Time.time) * Mathf.Cos(Time.time) * DirectionalWobble;
     }
 
-    transform.position = Target.transform.TransformDirection(directionFromTarget);
+    var position = Target.transform.TransformPoint(directionFromTarget);
+    if (position.y < Target.transform.position.y)
+    {
+      position.y += (Target.transform.position.y - position.y) * 2;
+    }
+
+    transform.position = position;
     transform.LookAt(Target.transform, Vector3.up);
 
     if (EnableRotationalWobble)
