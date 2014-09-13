@@ -6,6 +6,8 @@ public class SpawnController : MonoBehaviour
 
   public CameraController CameraController;
 
+  public GameObject Player { get; private set; }
+
   public void Start()
   {
     SpawnWobbleDog();
@@ -13,9 +15,9 @@ public class SpawnController : MonoBehaviour
 
   public GameObject SpawnWobbleDog()
   {
-    var wobbleDog = (GameObject)Instantiate(WobbleDogPrefab, transform.position, transform.rotation);
-    CameraController.Target = wobbleDog;
-    return wobbleDog;
+    Player = (GameObject)Instantiate(WobbleDogPrefab, transform.position, transform.rotation);
+    CameraController.Target = Player;
+    return Player;
   }
 
   public void OnDrawGizmos()
