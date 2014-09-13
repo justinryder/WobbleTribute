@@ -6,6 +6,8 @@ public class DartBoard : MonoBehaviour
 {
   public SpawnController SpawnPoint;
 
+  public BullsEyeCameraController BullsEyeCameraController;
+
   private readonly List<Collider> _stuckColliders = new List<Collider>();
 
   private ScoreController _scoreController;
@@ -23,6 +25,11 @@ public class DartBoard : MonoBehaviour
       collider.rigidbody.isKinematic = true;
       SpawnPoint.SpawnWobbleDog();
       _scoreController.AddPoints(1);
+
+      if (BullsEyeCameraController)
+      {
+        BullsEyeCameraController.SetMainAsMain();
+      }
     }
   }
 }
