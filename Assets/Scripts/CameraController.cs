@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
     }
 
     transform.position = Target.transform.TransformDirection(directionFromTarget);
-    transform.LookAt(Target.transform);
+    transform.LookAt(Target.transform, Target.transform.up);
 
     if (EnableRotationalWobble)
     {
