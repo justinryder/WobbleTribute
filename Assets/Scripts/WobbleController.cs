@@ -19,7 +19,7 @@ public class WobbleController : MonoBehaviour
 	void Awake()
 	{
 		_rightLocalPosition = RightPaw.transform.localPosition;
-		_leftLocalPosition = LeftPaw.transform.localPosition;
+	  _leftLocalPosition = LeftPaw.transform.localPosition;
 	}
 
 	// Use this for initialization

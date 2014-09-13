@@ -15,7 +15,7 @@ public class PlatformWobble : MonoBehaviour
 
 	void Awake ()
 	{
-		_wobbleAxes = Vector3.one.ComponentMult(WobbleAmount.normalized);
+		//_wobbleAxes = Vector3.one.ComponentMult(WobbleAmount.normalized);
 		_switchDir = false;
 	}
 

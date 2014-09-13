@@ -5,6 +5,7 @@ public class ScalingFeet : MonoBehaviour
 {
 	#region public variables
 	public float ScaleOffset;
+  public float TimeOffset;
 	#endregion
 
 	#region private variables
@@ -27,8 +28,8 @@ public class ScalingFeet : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		var tmpSinScale = ScaleOffset * Mathf.Sin(Time.time);
-		var tmpCosScale = ScaleOffset * Mathf.Cos(Time.time);
+		var tmpSinScale = ScaleOffset * Mathf.Sin(Time.time + TimeOffset);
+		var tmpCosScale = ScaleOffset * Mathf.Cos(Time.time + TimeOffset);
 		tmpSinScale += tmpSinScale;
 		tmpCosScale += tmpCosScale;
 		_currentScale.y = _initScale.y * tmpSinScale;
