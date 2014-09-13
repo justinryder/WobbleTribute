@@ -35,26 +35,26 @@ public class WobbleController : MonoBehaviour
 
 		if (input > 0)
 		{
-			RightPaw.rigidbody.AddTorque(RightPaw.transform.right * Speed);
-			LeftPaw.rigidbody.AddTorque(LeftPaw.transform.right * Speed);
+			RightPaw.rigidbody.AddRelativeTorque(Vector3.right * Speed);
+			LeftPaw.rigidbody.AddRelativeTorque(Vector3.right * Speed);
 		}
 		else if (input < 0)
 		{
-			RightPaw.rigidbody.AddTorque(RightPaw.transform.right * -Speed);
-			LeftPaw.rigidbody.AddTorque(LeftPaw.transform.right * -Speed);
+			RightPaw.rigidbody.AddRelativeTorque(Vector3.right * -Speed);
+			LeftPaw.rigidbody.AddRelativeTorque(Vector3.right * -Speed);
 		}
 
 		input = Input.GetAxis(AxisName + "Horizontal");
 
 		if (input > 0)
 		{
-			RightPaw.rigidbody.AddTorque(RightPaw.transform.right * -Speed);
-			LeftPaw.rigidbody.AddTorque(LeftPaw.transform.right * Speed);			
+			RightPaw.rigidbody.AddRelativeTorque(Vector3.right * -Speed);
+			LeftPaw.rigidbody.AddRelativeTorque(Vector3.right * Speed);			
 		}
 		else if (input < 0)
 		{
-			RightPaw.rigidbody.AddTorque(RightPaw.transform.right * Speed);
-			LeftPaw.rigidbody.AddTorque(LeftPaw.transform.right * -Speed);
+			RightPaw.rigidbody.AddRelativeTorque(Vector3.right * Speed);
+			LeftPaw.rigidbody.AddRelativeTorque(Vector3.right * -Speed);
 		}
 
 		/*RightPaw.transform.localPosition = _rightLocalPosition;

@@ -14,8 +14,6 @@ public class SpawnController : MonoBehaviour
   public GameObject SpawnWobbleDog()
   {
     var wobbleDog = (GameObject)Instantiate(WobbleDogPrefab, transform.position, transform.rotation);
-    wobbleDog.rigidbody.velocity = Vector3.zero;
-    wobbleDog.rigidbody.angularVelocity = Vector3.zero;
     CameraController.Target = wobbleDog;
     return wobbleDog;
   }

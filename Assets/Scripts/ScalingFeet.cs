@@ -30,8 +30,8 @@ public class ScalingFeet : MonoBehaviour
 	{
 		var tmpSinScale = ScaleOffset * Mathf.Sin(Time.time + TimeOffset);
 		var tmpCosScale = ScaleOffset * Mathf.Cos(Time.time + TimeOffset);
-		tmpSinScale += tmpSinScale;
-		tmpCosScale += tmpCosScale;
+		//tmpSinScale += tmpSinScale;
+		//tmpCosScale += tmpCosScale;
 		_currentScale.y = _initScale.y * tmpSinScale;
 		_currentScale.z = _initScale.z * tmpCosScale;
 		transform.localScale = _initScale + _currentScale;
