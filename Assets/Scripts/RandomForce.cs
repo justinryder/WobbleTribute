@@ -26,28 +26,23 @@ public class RandomForce : MonoBehaviour
     if (_timeUntilNextForceApplication < 0)
     {
       SetNewRandomTimeUntilNextForceApplication();
-      ApplyForceToTarget();
+      var target = GetRandomTarget();
+      Debug.Log(gameObject.name + " is applying force to " + target.name + ". Next force in " + _timeUntilNextForceApplication + " seconds.");
+      switch (Space)
+      {
+        case Space.Self:
+          target.AddRelativeForce(Force, ForceMode);
+          break;
+        case Space.World:
+          target.AddForce(Force, ForceMode);
+          break;
+      }
     }
   }
 
   private Rigidbody GetRandomTarget()
   {
     return Targets[Random.Range(0, Targets.Count)];
-  }
-
-  private void ApplyForceToTarget()
-  {
-    var target = GetRandomTarget();
-    Debug.Log(gameObject.name + " is applying force to " + target.name);
-    switch (Space)
-    {
-      case Space.Self:
-        target.AddRelativeForce(Force, ForceMode);
-        break;
-      case Space.World:
-        target.AddForce(Force, ForceMode);
-        break;
-    }
   }
 
   private void SetNewRandomTimeUntilNextForceApplication()
