@@ -1,10 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
   public KeyCode QuitToMenuKey = KeyCode.Escape;
 
   public Vector2 MenuSize = new Vector2(200, 200);
+
+  public void Awake()
+  {
+    var menuControllers = FindObjectsOfType<MenuController>();
+    if (menuControllers.Count() > 1)
+    {
+      Destroy(gameObject);
+    }
+  }
 
   public void Start()
   {
@@ -17,9 +27,11 @@ public class MenuController : MonoBehaviour
     if (Application.loadedLevelName == "menu")
     {
       var centeredStyle = GUI.skin.GetStyle("Label");
+      var alignment = centeredStyle.alignment;
       centeredStyle.alignment = TextAnchor.UpperCenter;
-      GUILayout.Label("WobbleDog Twilight", centeredStyle);
+      GUILayout.Label("Wobble Dog - Twilight", centeredStyle);
       GUILayout.Label("The Reckoning", centeredStyle);
+      centeredStyle.alignment = alignment;
       GUILayout.Space(20);
       
       if (GUILayout.Button("Kanye Target"))
