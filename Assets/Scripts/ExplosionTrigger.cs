@@ -24,6 +24,12 @@ public class ExplosionTrigger : MonoBehaviour
 
       Instantiate(ExplosionPrefab, transform.position, transform.rotation);
 
+      var scoreController = FindObjectOfType<ScoreController>();
+      if (scoreController)
+      {
+        scoreController.AddPoints(1);
+      }
+
       if (DestroyOnCollision)
       {
         if (RemoveScript != null)

@@ -110,7 +110,7 @@ public class ShootingGalleryGui : MonoBehaviour
       var y = Screen.height - height - Margin;
       GUI.Label(new Rect(x, y, width, height), "Deaths: " + Score.Deaths);
       y -= height;
-      GUI.Label(new Rect(x, y, width, height), "Points: " + Score.Points);
+      GUI.Label(new Rect(x, y, width, height), "Kanyes Hit: " + Score.Points);
     }
   }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class KanyeLevelGui : MonoBehaviour
+public class BoomRoomGui : MonoBehaviour
 {
   public ScoreController Score;
 
@@ -23,8 +24,7 @@ public class KanyeLevelGui : MonoBehaviour
 
   private readonly string[] _instructions =
   {
-    "Don't fall into the lava.",
-    "Hit Kanye for points."
+    "GET THE BALLS"
   };
 
   private readonly string[] _controls =
@@ -114,9 +114,7 @@ public class KanyeLevelGui : MonoBehaviour
       var height = LineHeight;
       var x = Margin;
       var y = Screen.height - height - Margin;
-      GUI.Label(new Rect(x, y, width, height), "Deaths: " + Score.Deaths);
-      y -= height;
-      GUI.Label(new Rect(x, y, width, height), "Kanyes Hit: " + Score.Points);
+      GUI.Label(new Rect(x, y, width, height), "Balls Got: " + Score.Points);
     }
   }
 }
