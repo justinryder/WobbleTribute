@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
@@ -6,9 +7,29 @@ public class SpawnController : MonoBehaviour
 
   public CameraController CameraController;
 
+  public DartBoard DartBoard;
+
   public GameObject Player { get; private set; }
 
   public void Start()
+  {
+    if (DartBoard)
+    {
+      DartBoard.PlayerHit += SpawnWobbleDog;
+    }
+
+    SpawnWobbleDog();
+  }
+
+  public void OnDestroy()
+  {
+    if (DartBoard)
+    {
+      DartBoard.PlayerHit -= SpawnWobbleDog;
+    }
+  }
+
+  private void SpawnWobbleDog(object o, EventArgs e)
   {
     SpawnWobbleDog();
   }
