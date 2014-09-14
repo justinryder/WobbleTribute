@@ -10,6 +10,7 @@ public class PlatformWobble : MonoBehaviour
 
 	#region private variables
 	private Vector3 _wobbleAxes;
+	private Quaternion _initialRotaion;
 	private bool _switchDir;
 	#endregion
 
@@ -17,6 +18,7 @@ public class PlatformWobble : MonoBehaviour
 	{
 		//_wobbleAxes = Vector3.one.ComponentMult(WobbleAmount.normalized);
 		_switchDir = false;
+		_initialRotaion = transform.rotation;
 	}
 
 	// Use this for initialization
@@ -28,7 +30,9 @@ public class PlatformWobble : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		var rotAmt = WobbleAmount * Mathf.Cos(Time.time);
-		transform.Rotate(rotAmt - (rotAmt / 2));
+		var rotAmt = WobbleAmount * Mathf.Sin(Time.time);
+		transform.rotation = _initialRotaion;
+
+		transform.Rotate(rotAmt);
 	}
 }
