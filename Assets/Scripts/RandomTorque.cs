@@ -22,7 +22,7 @@ public class RandomTorque : MonoBehaviour
     if (_timeUntilNextForceApplication < 0)
     {
       SetNewRandomTimeUntilNextForceApplication();
-      Debug.Log(gameObject.name + " applying torque. Next delay is " + _timeUntilNextForceApplication + " seconds.");
+      //Debug.Log(gameObject.name + " applying torque. Next delay is " + _timeUntilNextForceApplication + " seconds.");
       rigidbody.AddRelativeTorque(Force * (Random.value > 0.5f ? 1 : -1), ForceMode);
     }
   }
