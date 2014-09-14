@@ -62,10 +62,7 @@ public class MenuController : MonoBehaviour
       }
     }
     GUILayout.EndArea();
-  }
 
-  private Matrix4x4 Matrix(float x, float y, float angle)
-  {
-    return Matrix4x4.TRS(new Vector3(x, y), Quaternion.AngleAxis(angle, Vector3.forward), Vector3.one);
+    GUI.Label(new Rect(10, Screen.height - 30, 200, 30), "F11 - Toggle Full Screen");
   }
 }
