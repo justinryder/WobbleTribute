@@ -16,8 +16,15 @@ public class KillZone : MonoBehaviour
     if (collider.tag == "Player")
     {
       Destroy(collider.gameObject);
-      SpawnPoint.SpawnWobbleDog();
-      _scoreController.AddDeath();
+      if (SpawnPoint)
+      {
+        SpawnPoint.SpawnWobbleDog();
+      }
+
+      if (_scoreController)
+      {
+        _scoreController.AddDeath();
+      }
     }
   }
 }

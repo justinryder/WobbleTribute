@@ -4,8 +4,6 @@ public class KanyeLevelGui : MonoBehaviour
 {
   public ScoreController Score;
 
-  public Texture AreaBackground;
-
   public int Margin = 10;
 
   public int LineHeight = 25;

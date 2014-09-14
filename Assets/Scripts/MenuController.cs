@@ -34,9 +34,19 @@ public class MenuController : MonoBehaviour
       GUILayout.Space(20);
       centeredStyle.alignment = alignment;
       
-      if (GUILayout.Button("Play"))
+      if (GUILayout.Button("Play Kanye Target"))
       {
         Application.LoadLevel("kanyetarget");
+      }
+
+      if (GUILayout.Button("Play Shooting Gallery"))
+      {
+        Application.LoadLevel("ShootingGallery");
+      }
+
+      if (GUILayout.Button("Play Boom Room"))
+      {
+        Application.LoadLevel("boomroom");
       }
 
       if (GUILayout.Button("Credits"))
