@@ -23,6 +23,7 @@ public class KanyeLevelGui : MonoBehaviour
     "Escape - Quit To Menu",
     "WASD - Back Paws",
     "Arrow Keys - Front Paws",
+    "B/N - Roll Over",
     "Return - Forward Boost",
     "Space - Jump",
     "Backspace - Suicide",
