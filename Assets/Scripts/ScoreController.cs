@@ -2,23 +2,17 @@
 
 public class ScoreController : MonoBehaviour
 {
-  private int _points;
+  public int Points { get; private set; }
 
-  private int _deaths;
+  public int Deaths { get; private set; }
 
   public void AddPoints(int points)
   {
-    _points += points;
+    Points += points;
   }
 
   public void AddDeath()
   {
-    _deaths++;
-  }
-
-  public void OnGUI()
-  {
-    GUILayout.TextArea("Points: " + _points);
-    GUILayout.TextArea("Deaths: " + _deaths);
+    Deaths++;
   }
 }
