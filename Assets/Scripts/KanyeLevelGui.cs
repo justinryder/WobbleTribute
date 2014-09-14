@@ -27,7 +27,8 @@ public class KanyeLevelGui : MonoBehaviour
     "Return - Forward Boost",
     "Space - Jump",
     "Backspace - Suicide",
-    "C - Toggle New/Classic Camera"
+    "C - Toggle New/Classic Camera",
+    "X - Toggle Kanye Camera"
   };
 
   public void OnGUI()
