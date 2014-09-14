@@ -31,8 +31,19 @@ public class MenuController : MonoBehaviour
       centeredStyle.alignment = TextAnchor.UpperCenter;
       GUILayout.Label("Wobble Dog - Twilight", centeredStyle);
       GUILayout.Label("The Reckoning", centeredStyle);
-      centeredStyle.alignment = alignment;
       GUILayout.Space(20);
+      centeredStyle.alignment = alignment;
+
+      var matrix = GUI.matrix;
+
+      GUI.matrix = Matrix(0, 0, 30);
+      GUI.Label(new Rect(0, 0, 200, 25), "Now with 20% more wobbles!!!");
+      GUI.matrix = Matrix(0, 0, -20);
+      GUI.Label(new Rect(0, 0, 200, 25), "New and \"improved!\"");
+      GUI.matrix = Matrix(200, 200, -40);
+      GUI.Label(new Rect(0, 0, 200, 25), "Woogly Oogly Eyes!");
+
+      GUI.matrix = matrix;
       
       if (GUILayout.Button("Kanye Target"))
       {
@@ -52,5 +63,10 @@ public class MenuController : MonoBehaviour
       }
     }
     GUILayout.EndArea();
+  }
+
+  private Matrix4x4 Matrix(float x, float y, float angle)
+  {
+    return Matrix4x4.TRS(new Vector3(x, y), Quaternion.AngleAxis(angle, Vector3.forward), Vector3.one);
   }
 }
