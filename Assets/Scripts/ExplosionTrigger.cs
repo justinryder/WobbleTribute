@@ -2,6 +2,10 @@
 
 public class ExplosionTrigger : MonoBehaviour
 {
+  public event RemoveScriptEvent RemoveScript;
+
+  public delegate void RemoveScriptEvent(ExplosionTrigger scriptToRemove);
+
   public GameObject ExplosionPrefab;
 
   public float ExplosionForce = 50000;
@@ -21,6 +25,9 @@ public class ExplosionTrigger : MonoBehaviour
 
       if (DestroyOnCollision)
       {
+        if(RemoveScript != null)
+          RemoveScript(this);
+          
         Destroy(gameObject);
       }
     }
