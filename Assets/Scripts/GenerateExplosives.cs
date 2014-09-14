@@ -2,50 +2,55 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GenerateExplosives : MonoBehaviour 
+public class GenerateExplosives : MonoBehaviour
 {
-	#region public variables
-	public GameObject prefab;
-	#endregion
+  #region public variables
 
-	#region private variables
-	private List<ExplosionTrigger> _explosives;
-	#endregion
+  public GameObject prefab;
 
-	void Awake()
-	{
-		_explosives = new List<ExplosionTrigger>();
+  public float SpawnVelocity = 5;
 
-		for(int i = 0; i < 25; i++)
-		{
+  #endregion
 
-			var pos = new Vector3(Random.Range(-23, 23), Random.Range(0, 43), Random.Range(-23, 23));
-			_explosives.Add(((GameObject) Instantiate(prefab, pos, new Quaternion())).GetComponent<ExplosionTrigger>());
-			_explosives[_explosives.Count - 1].RemoveScript += _removeExplosive;
-		}
-	}
+  #region private variables
 
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		if(_explosives.Count < 25)
-		{
-			var pos = new Vector3(Random.Range(-23, 23), Random.Range(0, 43), Random.Range(-23, 23));
-			_explosives.Add(((GameObject) Instantiate(prefab, pos, new Quaternion())).GetComponent<ExplosionTrigger>());
-			_explosives[_explosives.Count - 1].RemoveScript += _removeExplosive;
-			print(_explosives.Count);			
-		}
-	}
+  private List<ExplosionTrigger> _explosives;
 
-	private void _removeExplosive(ExplosionTrigger objectToRemove)
-	{
-		objectToRemove.RemoveScript -= _removeExplosive;
-		_explosives.Remove(objectToRemove);	
-	}
+  #endregion
+
+  private void Awake()
+  {
+    _explosives = new List<ExplosionTrigger>();
+
+    for (int i = 0; i < 25; i++)
+    {
+      SpawnExplosive();
+    }
+  }
+
+  private void Update()
+  {
+    if (_explosives.Count < 25)
+    {
+      SpawnExplosive();
+      print(_explosives.Count);
+    }
+  }
+
+  private void SpawnExplosive()
+  {
+    var pos = new Vector3(Random.Range(-23, 23), Random.Range(0, 43), Random.Range(-23, 23));
+    var explosive = (GameObject)Instantiate(prefab, pos, new Quaternion());
+    explosive.rigidbody.AddForce(Random.insideUnitSphere * SpawnVelocity, ForceMode.Impulse);
+
+    var explosiveTrigger = explosive.GetComponent<ExplosionTrigger>();
+    _explosives.Add(explosiveTrigger);
+    explosiveTrigger.RemoveScript += _removeExplosive;
+  }
+
+  private void _removeExplosive(ExplosionTrigger objectToRemove)
+  {
+    objectToRemove.RemoveScript -= _removeExplosive;
+    _explosives.Remove(objectToRemove);
+  }
 }
