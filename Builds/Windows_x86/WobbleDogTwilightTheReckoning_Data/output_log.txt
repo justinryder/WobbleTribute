@@ -1,0 +1,36 @@
+Initialize engine version: 4.5.4f1 (e036f44c54c9)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA NVS 4200M     (ID=0x1056)
+    Vendor:   NVIDIA
+    VRAM:     467 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Git\WobbleTribute\Builds\Windows_x86\WobbleDogTwilightTheReckoning_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Git\WobbleTribute\Builds\Windows_x86\WobbleDogTwilightTheReckoning_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Git\WobbleTribute\Builds\Windows_x86\WobbleDogTwilightTheReckoning_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Git\WobbleTribute\Builds\Windows_x86\WobbleDogTwilightTheReckoning_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.066 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found.
+<RI> Input initialized.
+Platform assembly: C:\Git\WobbleTribute\Builds\Windows_x86\WobbleDogTwilightTheReckoning_Data\Managed\System.Core.dll (this message is harmless)
+UnloadTime: 0.704035 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 145.
+Total: 0.861673 ms (FindLiveObjects: 0.008210 ms CreateObjectMapping: 0.009031 ms MarkObjects: 0.120281 ms  DeleteObjects: 0.032430 ms)
+
+UnloadTime: 0.248362 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 278.
+Total: 0.704856 ms (FindLiveObjects: 0.013547 ms CreateObjectMapping: 0.009031 ms MarkObjects: 0.115355 ms  DeleteObjects: 0.004926 ms)
+
+UnloadTime: 1.220464 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 145.
+Total: 1.645759 ms (FindLiveObjects: 0.018062 ms CreateObjectMapping: 0.020525 ms MarkObjects: 0.220857 ms  DeleteObjects: 0.066503 ms)
+

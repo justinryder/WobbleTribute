@@ -5,7 +5,7 @@ public class MenuController : MonoBehaviour
 {
   public KeyCode QuitToMenuKey = KeyCode.Escape;
 
-  public Vector2 MenuSize = new Vector2(200, 300);
+  public Vector2 MenuSize = new Vector2(200, 400);
 
   public void Awake()
   {
@@ -47,6 +47,11 @@ public class MenuController : MonoBehaviour
       if (GUILayout.Button("Play Boom Room"))
       {
         Application.LoadLevel("boomroom");
+      }
+
+      if (GUILayout.Button("Options"))
+      {
+        Application.LoadLevel("options");
       }
 
       if (GUILayout.Button("Credits"))
