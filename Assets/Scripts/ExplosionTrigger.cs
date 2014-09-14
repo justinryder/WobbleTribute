@@ -2,32 +2,35 @@
 
 public class ExplosionTrigger : MonoBehaviour
 {
-  public event RemoveScriptEvent RemoveScript;
-
-  public delegate void RemoveScriptEvent(ExplosionTrigger scriptToRemove);
-
   public GameObject ExplosionPrefab;
 
-  public float ExplosionForce = 50000;
+  public float ExplosionForce = 5000;
 
   public float ExplosionRadius = 5;
 
   public bool DestroyOnCollision = true;
+
+  public delegate void RemoveScriptEvent(ExplosionTrigger scriptToRemove);
+
+  public event RemoveScriptEvent RemoveScript;
 
   public void OnCollisionEnter(Collision collision)
   {
     var oldestAncestor = collision.transform.GetOldestAncestor();
     if (oldestAncestor.tag == "Player")
     {
-      oldestAncestor.rigidbody.AddExplosionForce(ExplosionForce, transform.position, ExplosionRadius);
+      var deltaPosition = collision.transform.position - transform.position;//transform.position - collision.transform.position;
+      oldestAncestor.rigidbody.AddForce(deltaPosition * ExplosionForce, ForceMode.Impulse);
 
       Instantiate(ExplosionPrefab, transform.position, transform.rotation);
 
       if (DestroyOnCollision)
       {
-        if(RemoveScript != null)
+        if (RemoveScript != null)
+        {
           RemoveScript(this);
-          
+        }
+
         Destroy(gameObject);
       }
     }

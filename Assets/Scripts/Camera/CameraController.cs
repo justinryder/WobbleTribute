@@ -33,6 +33,7 @@ public class CameraController : MonoBehaviour
     }
 
     transform.position = position;
+    StayInTheBox();
     transform.LookAt(Target.transform, Vector3.up);
 
     if (EnableRotationalWobble)
@@ -42,6 +43,14 @@ public class CameraController : MonoBehaviour
       transform.Rotate(transform.right, rotationalWobble.x);
       transform.Rotate(transform.up, rotationalWobble.y);
       transform.Rotate(transform.forward, rotationalWobble.z);
+    }
+  }
+
+  private void StayInTheBox()
+  {
+    if (Application.loadedLevelName == "boomroom")
+    {
+      transform.position = transform.position.Clamp(new Vector3(-25, -25, -25), new Vector3(25, 25, 25));
     }
   }
 }

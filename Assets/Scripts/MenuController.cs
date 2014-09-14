@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour
       GUILayout.Space(20);
       centeredStyle.alignment = alignment;
       
-      if (GUILayout.Button("Play Kanye Target"))
+      if (GUILayout.Button("Play Launch Pad"))
       {
         Application.LoadLevel("kanyetarget");
       }
