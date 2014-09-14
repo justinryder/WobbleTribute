@@ -4,7 +4,7 @@ public class CreditsController : MonoBehaviour
 {
   public int CreditHeight = 50;
 
-  public float CreditSpeed = 10;
+  public float CreditSpeed = 20;
 
   private string[] _credits = new string[]
   {

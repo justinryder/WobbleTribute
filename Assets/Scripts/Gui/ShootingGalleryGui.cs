@@ -32,6 +32,7 @@ public class ShootingGalleryGui : MonoBehaviour
     "Escape - Quit To Menu",
     "Mouse - Aim",
     "Left Click - Fire",
+    "Scroll - Change Distance",
     "1 - Toggle Full GUI",
     "2 - Toggle Controls",
     "3 - Toggle Instructions",
@@ -75,11 +76,11 @@ public class ShootingGalleryGui : MonoBehaviour
       var width = LineWidth;
       var height = LineHeight;
       var x = Screen.width - width - Margin;
-      var y = Screen.height - height - Margin;
+      var y = Margin;
       foreach (var instruction in _instructions)
       {
         GUI.Label(new Rect(x, y, width, height), instruction);
-        y -= height;
+        y += height;
       }
     }
   }
@@ -91,11 +92,11 @@ public class ShootingGalleryGui : MonoBehaviour
       var width = LineWidth;
       var height = LineHeight;
       var x = Margin;
-      var y = Margin;
+      var y = Screen.height - height - Margin;
       foreach (var control in _controls)
       {
         GUI.Label(new Rect(x, y, width, height), control);
-        y += height;
+        y -= height;
       }
     }
   }
@@ -107,9 +108,9 @@ public class ShootingGalleryGui : MonoBehaviour
       var width = LineWidth;
       var height = LineHeight;
       var x = Margin;
-      var y = Screen.height - height - Margin;
+      var y = Margin;
       GUI.Label(new Rect(x, y, width, height), "Deaths: " + Score.Deaths);
-      y -= height;
+      y += height;
       GUI.Label(new Rect(x, y, width, height), "Kanyes Hit: " + Score.Points);
     }
   }
