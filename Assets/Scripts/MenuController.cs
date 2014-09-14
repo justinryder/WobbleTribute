@@ -33,26 +33,10 @@ public class MenuController : MonoBehaviour
       GUILayout.Label("The Reckoning", centeredStyle);
       GUILayout.Space(20);
       centeredStyle.alignment = alignment;
-
-      var matrix = GUI.matrix;
-
-      GUI.matrix = Matrix(0, 0, 30);
-      GUI.Label(new Rect(0, 0, 200, 25), "Now with 20% more wobbles!!!");
-      GUI.matrix = Matrix(0, 0, -20);
-      GUI.Label(new Rect(0, 0, 200, 25), "New and \"improved!\"");
-      GUI.matrix = Matrix(200, 200, -40);
-      GUI.Label(new Rect(0, 0, 200, 25), "Woogly Oogly Eyes!");
-
-      GUI.matrix = matrix;
       
-      if (GUILayout.Button("Kanye Target"))
+      if (GUILayout.Button("Play"))
       {
         Application.LoadLevel("kanyetarget");
-      }
-
-      if (GUILayout.Button("Test"))
-      {
-        Application.LoadLevel("test");
       }
 
       if (GUILayout.Button("Credits"))
