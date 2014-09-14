@@ -35,7 +35,7 @@ public class BoomRoomGui : MonoBehaviour
     "B/N - Roll Over",
     "Return - Forward Boost",
     "Space - Jump",
-    "Backspace - Suicide",
+    "Backspace - Teleport to Center",
     "C - Toggle New/Classic Camera",
     "X - Toggle Kanye Camera",
     "1 - Toggle Full GUI",
